@@ -1,7 +1,6 @@
 - [ ] Provide images: cilium-cli, cilium, operator-generic, hubble-relay 
 - [ ] Update instructions to use the supplied beta images 
 - [ ] Draw a diagram 
-- [ ] Add envoy-test.yaml file
 
 # Layer 7 Traffic Management
 
