@@ -13,7 +13,7 @@ This feature is enabled using the `--enable-envoy-config` feature flag.
 This example shows an example configuration that 
 * load-balances between two backend services
 * performs a URL re-write
-* shows L7 observability
+* shows L7 observability and network policy
 
 ### Deploy a Kind cluster with Cilium Service Mesh installed
 
