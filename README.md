@@ -40,7 +40,7 @@ Other features will be added as the beta progresses. Get in touch on [Cilium Sla
 
 ## Getting started
 
-These instructions will help you test out Service Mesh features. 
+These instructions will help you test out Service Mesh features. Please note: although we’ll only change things for good reasons, there are no backward-compatibility guarantees with the CRDs related to Cilium Service Mesh (CiliumEnvoyConfig, CiliumIngressController, and others in future). Please be mindful of this when you choose where to deploy Cilium Service Mesh.
 
 ### Kubernetes Ingress
 
