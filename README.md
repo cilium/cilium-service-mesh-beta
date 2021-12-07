@@ -44,7 +44,7 @@ These instructions will help you test out Service Mesh features.
 
 ### Kubernetes Ingress
 
-Cilium Service Mesh adds support for Kubernetes Ingress with path-based routing for HTTP and gRPC traffic. 
+Cilium Service Mesh adds support for Kubernetes Ingress with path-based routing for HTTP and gRPC traffic, and support for TLS termination. This is configured using a new `CiliumIngressController` CRD. 
 
 [Kubernetes Ingress instructions]() To Be Added (based on Michi's internal demo set-up) 
 
