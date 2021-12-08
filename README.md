@@ -40,17 +40,17 @@ Other features will be added as the beta progresses. Get in touch on [Cilium Sla
 
 ## Getting started
 
-These instructions will help you test out Service Mesh features. Please note: although we’ll only change things for good reasons, there are no backward-compatibility guarantees with the CRDs related to Cilium Service Mesh (CiliumEnvoyConfig, CiliumIngressController, and others in future). Please be mindful of this when you choose where to deploy Cilium Service Mesh.
+These instructions will help you test out Service Mesh features. Please note: although we’ll only change things for good reasons, there are no backward-compatibility guarantees with the CRDs related to Cilium Service Mesh (CiliumEnvoyConfig, and others in future). Please be mindful of this when you choose where to deploy Cilium Service Mesh.
 
 ### Kubernetes Ingress
 
-Cilium Service Mesh adds support for Kubernetes Ingress with path-based routing for HTTP and gRPC traffic, and support for TLS termination. This is configured using a new `CiliumIngressController` CRD. 
+Cilium Service Mesh adds support for Kubernetes Ingress with path-based routing for HTTP and gRPC traffic, and support for TLS termination. 
 
-[Kubernetes Ingress instructions]() To Be Added (based on Michi's internal demo set-up) 
+We have an example configuration and demo instructions for [Kubernetes Ingress](https://github.com/cilium/cilium-service-mesh-beta/tree/main/kubernetes-ingress) 
 
 ### Open Telemetry Support 
 
-The Hubble observability tool now has an integration with Open Telemetry.  We have a guide for trying out [Open Telemetry support](https://github.com/cilium/hubble-otel/blob/main/USER_GUIDE_KIND.md) in a Kind cluster. 
+The Hubble observability tool now has an integration with Open Telemetry.  We have an example configuration and guide for trying out [Open Telemetry support](https://github.com/cilium/hubble-otel/blob/main/USER_GUIDE_KIND.md). 
 
 ### L7-aware Traffic Management
 
