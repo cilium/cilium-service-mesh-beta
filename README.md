@@ -56,7 +56,7 @@ The Hubble observability tool now has an integration with Open Telemetry.  We ha
 
 Cilium is deployed in Kubernetes as a DaemonSet, such that each node in the the cluster runs an instance of Cilium. This includes an Envoy container that, before Service Mesh, was already used for Layer 7 policy management and observability. In Cilium Service Mesh, a new `CiliumEnvoyConfiguration` CRD allows direct access to configuring Envoy L7 traffic management's capabilities. 
 
-[L7-aware Traffic Management]() To Be Added (based on Jarno's PR README) 
+We have an example configuration and demo instructions for [L7-aware Traffic Management](https://github.com/cilium/cilium-service-mesh-beta/tree/main/l7-traffic-management).  
 
 ## Raising issues
 
