@@ -40,7 +40,7 @@ Run `cilium connectivity test` to deploy the test applications used for L7 egres
 cilium connectivity test --test egress-l7
 ```
 
-These test services consist of 
+The test workloads consist of 
 * two client deployments, `client` and `client2`
 * two backend services, `echo-other-node` and `echo-same-node` 
 
