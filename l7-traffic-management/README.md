@@ -54,10 +54,10 @@ You can see that
 * Only `client2` is labelled with `other=client` - we will use this in a `CiliumNetworkPolicy` definition later in this example
 * The pods for `client`, `client2` and `echo-same-node` run on one node, while `echo-other-node` is scheduled to the other node
 
-Make a note of the client pod ID: 
+Make an environment variable with the pod ID for `client2`: 
 
 ```
-export CLIENT=<client pod ID>
+export CLIENT2=<client pod ID>
 ```
 
 You can also view the `echo-` services:
@@ -73,7 +73,7 @@ We are going to use Envoy configuration to load-balance requests between these t
 Start a second terminal, and observe traffic from the `client2` pod: 
 
 ```
-hubble observe --from-pod cilium-test/$CLIENT -f
+hubble observe --from-pod cilium-test/$CLIENT2 -f
 ```
 
 You should be able to get a response from both of the backend services individually from `client2`:
