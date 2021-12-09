@@ -2,12 +2,12 @@
 
 To do before release 
 
-- [ ] Add instructions for K8s Ingress
-- [ ] Add instructions for L7 traffic / CEC
-- [ ] Cilium component image builds
+- [ ] Finish instructions for K8s Ingress
+- [ ] Finish instructions for L7 traffic / CEC
+- [ ] Update Cilium component image names
+- [ ] Update Cilium CLI version TBD
 - [ ] Make this repo public 
 - [ ] Check that Issue Templating works (it's not supported in private repos) 
-- [ ] What else? 
 
 # Cilium Service Mesh beta program
 
@@ -22,7 +22,7 @@ In this repo you'll find
 
 ## Service Mesh feature status 
 
-This is the readiness of Service Mesh capabilities in the Service Mesh feature branch.
+This is the readiness of Service Mesh capabilities in the Service Mesh feature branch, and built into the latest set of service mesh beta images. 
 
 **Alpha** Very early release of features that have not been through extensive testing yet. No guarantee that future releases will be back compatible with CRDs or other configuration settings. We would love your feedback on Alpha features, but please don't be surprised if you encounter bugs.
 
@@ -37,6 +37,18 @@ This is the readiness of Service Mesh capabilities in the Service Mesh feature b
 | L7-aware Traffic Management | Alpha | 
 
 Other features will be added as the beta progresses. Get in touch on [Cilium Slack](http://slack.cilium.io) to let us know about your priorities! 
+
+## Image tags
+
+Container images built to include the service mesh beta features are available from `quay.io`: 
+
+| Component | Image name | 
+|-----------|------------|
+| Cilium agent | |
+| Cilium operator | | 
+| Hubble relay | | 
+
+You will also need [Cilium CLI](https://github.com/cilium/cilium-cli). Check that you have version <TBD> or greater installed by running `cilium version`. 
 
 ## Getting started
 
