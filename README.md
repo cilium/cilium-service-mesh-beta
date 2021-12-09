@@ -14,11 +14,11 @@ The Cilium project is developing Service Mesh capabilities in a [feature branch]
 
 *Please note: although we’ll only change things for good reasons, there are no backward-compatibility guarantees with the configuration of Cilium Service Mesh during beta, and the code has not only been through limited testing. Please be mindful of this when you choose where to deploy Cilium Service Mesh - we do not recommend using it in production or staging environments yet.*
 
-**Alpha** Very early release of features that have not been through extensive testing yet. No guarantee that future releases will be back compatible with CRDs or other configuration settings. We would love your feedback on Alpha features, but please don't be surprised if you encounter bugs.
+**Alpha** Very early release of features that have not been through extensive testing yet. No guarantee that future releases will be back compatible with CRDs or other configuration settings. Please don't be surprised if you encounter bugs.
 
-**Beta** Early release of features that we expect to be stable enough for testing by end users. No guarantee that future releases will be back compatible with CRDs or other configuration settings. We would love your feedback and issue reports about Beta features. 
+**Beta** Early release of features that we expect to be stable enough for testing by end users. No guarantee that future releases will be back compatible with CRDs or other configuration settings.
 
-**v1.11** Features already merged into the Cilium v1.11 release (as well as being available in the Service Mesh beta-specific builds)
+**v1.11** Features already merged into the Cilium v1.11 release (as well as in the Service Mesh beta-specific builds)
 
 | Feature | Status | 
 |---------|--------|
