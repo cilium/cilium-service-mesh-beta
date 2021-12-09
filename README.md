@@ -18,17 +18,18 @@ The Cilium project is developing a set of Service Mesh features and capabilities
 In this repo you'll find 
 * information about the current status of Cilium Service Mesh features
 * instructions for getting started with Cilium Service Mesh
-* an issue tracker specifically for bug reports, usability concerns, and feature requests related to Cilium Service Mesh. 
+* a [discussions forum](https://github.com/cilium/cilium-service-mesh-beta/discussions) for your feedback on Cilium Service Mesh features and usability
+* an [issue tracker](https://github.com/cilium/cilium-service-mesh-beta/issues) for bug reports related to Cilium Service Mesh. 
 
 ## Service Mesh feature status 
 
-This is the readiness of Service Mesh capabilities in the Service Mesh feature branch, and built into the latest set of service mesh beta images. 
+This is the readiness of Service Mesh capabilities in the Service Mesh feature branch, and built into the latest set of service mesh beta images. Please note: although we’ll only change things for good reasons, there are no backward-compatibility guarantees with the configuration of Cilium Service Mesh during beta, and the code has not only been through limited testing. Please be mindful of this when you choose where to deploy Cilium Service Mesh - we do not recommend using it in production or staging environments yet.
 
 **Alpha** Very early release of features that have not been through extensive testing yet. No guarantee that future releases will be back compatible with CRDs or other configuration settings. We would love your feedback on Alpha features, but please don't be surprised if you encounter bugs.
 
 **Beta** Early release of features that we expect to be stable enough for testing by end users. No guarantee that future releases will be back compatible with CRDs or other configuration settings. We would love your feedback and issue reports about Beta features. 
 
-**v1.11** This feature is already merged into the Cilium v1.11 release (as well as being available in the Service Mesh beta-specific builds)
+**v1.11** Features already merged into the Cilium v1.11 release (as well as being available in the Service Mesh beta-specific builds)
 
 | Feature | Status | 
 |---------|--------|
@@ -36,7 +37,7 @@ This is the readiness of Service Mesh capabilities in the Service Mesh feature b
 | Open Telemetry support | Alpha, v1.11 |
 | L7-aware Traffic Management | Alpha | 
 
-Other features will be added as the beta progresses. Get in touch on [Cilium Slack](http://slack.cilium.io) to let us know about your priorities! 
+Other features will be added as the beta progresses. 
 
 ## Image tags
 
@@ -44,15 +45,15 @@ Container images built to include the service mesh beta features are available f
 
 | Component | Image name | 
 |-----------|------------|
-| Cilium agent | |
-| Cilium operator | | 
-| Hubble relay | | 
+| Cilium agent | quay.io/cilium/cilium-service-mesh:v1.11.0-beta.1 |
+| Cilium operator | quay.io/cilium/operator-generic-service-mesh:v1.11.0-beta.1 | 
+| Hubble relay | quay.io/cilium/operator-generic-service-mesh:v1.11,0-beta.1 | 
 
-You will also need [Cilium CLI](https://github.com/cilium/cilium-cli). Check that you have version <TBD> or greater installed by running `cilium version`. 
+You will also need [Cilium CLI](https://github.com/cilium/cilium-cli). Check that you have version 0.9.4 or greater installed by running `cilium version` (or your own version built from the main branch of that repo). 
 
 ## Getting started
 
-These instructions will help you test out Service Mesh features. Please note: although we’ll only change things for good reasons, there are no backward-compatibility guarantees with the CRDs related to Cilium Service Mesh (CiliumEnvoyConfig, and others in future). Please be mindful of this when you choose where to deploy Cilium Service Mesh.
+These instructions will help you test out Service Mesh features. 
 
 ### Kubernetes Ingress
 
