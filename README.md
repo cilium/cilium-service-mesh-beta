@@ -4,7 +4,7 @@ To do before release
 
 - [ ] Finish instructions for K8s Ingress
 - [ ] Finish instructions for L7 traffic / CEC
-- [ ] Update Cilium component image names
+- [ ] Update Cilium component image names (and add a Releases section to this repo?) 
 - [ ] Update Cilium CLI version TBD
 - [ ] Make this repo public 
 - [ ] Check that Issue Templating works (it's not supported in private repos) 
