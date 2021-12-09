@@ -12,7 +12,7 @@ The Cilium project is developing Service Mesh capabilities in a [feature branch]
 
 ## Service Mesh feature status 
 
-*Please note: although we’ll only change things for good reasons, there are no backward-compatibility guarantees with the configuration of Cilium Service Mesh during beta, and the code has not only been through limited testing. Please be mindful of this when you choose where to deploy Cilium Service Mesh - we do not recommend using it in production or staging environments yet.*
+*Please note: although we’ll only change things for good reasons, there are no backward-compatibility guarantees with the configuration of Cilium Service Mesh during beta, and the code has only been through limited testing. Please be mindful of this when you choose where to deploy Cilium Service Mesh - we do not recommend using it in production or staging environments yet.*
 
 **Alpha** Very early release of features that have not been through extensive testing yet. No guarantee that future releases will be back compatible with CRDs or other configuration settings. Please don't be surprised if you encounter bugs.
 
@@ -38,7 +38,7 @@ Container images built to include the service mesh beta features:
 | Cilium operator | quay.io/cilium/operator-generic-service-mesh:v1.11.0-beta.1 | 
 | Hubble relay | quay.io/cilium/operator-generic-service-mesh:v1.11,0-beta.1 | 
 
-You will also need [Cilium CLI](https://github.com/cilium/cilium-cli). Check that you have version 0.9.4 or greater installed by running `cilium version` (or your own version built from the main branch of that repo). 
+You will also need [Cilium CLI](https://github.com/cilium/cilium-cli) version 0.9.4 or greater. (Check the version with `cilium version`). 
 
 ## Getting started
 
