@@ -43,7 +43,10 @@ You will also need [Cilium CLI](https://github.com/cilium/cilium-cli) version 0.
 ## Getting started
 
 Instructions for installing the Cilium service mesh beta components are [here](INSTALLATION.md).
-Coming soon, we'll have example configurations and walkthroughs for trying out Service Mesh capabilities. 
+
+Try HTTP path-based routing with this [Kubernetes Ingress example](./kubernetes-ingress/).
+
+Coming soon, we'll have more example configurations and walkthroughs for trying out Service Mesh capabilities. 
 
 ## Raising issues
 
