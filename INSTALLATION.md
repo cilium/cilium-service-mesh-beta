@@ -44,11 +44,13 @@ In order to use the `hubble` command to observe flows you will want to use port-
 cilium hubble port-forward & 
 ```
 
-[Install the Hubble CLI](https://docs.cilium.io/en/v1.11/gettingstarted/hubble_setup/#install-the-hubble-client), and then you can observe flows in the cluster with commands such as: 
+[Install the Hubble CLI](https://docs.cilium.io/en/v1.11/gettingstarted/hubble_setup/#install-the-hubble-client), and then you can continuously observe flows in the cluster with commands such as: 
 
 ```
-hubble observe --server localhost:4245
+hubble observe -f
 ```
+
+Check out `hubble help observe` for command line options to filter the output down to what you are most interested in (e.g., `--to-service`).
 
 ### (Optional) Install Hubble UI
 
