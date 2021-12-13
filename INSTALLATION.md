@@ -2,7 +2,7 @@
 
 These instructions should help you get the Cilium Service Mesh-specific images installed in your cluster, with the service mesh features enabled. 
 
-## Install Cilium Service Mesh 
+## Install Cilium and Hubble
 
 [Install the Cilium CLI](https://docs.cilium.io/en/v1.11/gettingstarted/k8s-install-default/#install-the-cilium-cli) and run `cilium version` to check that you have version 0.10.0 or above. 
 
