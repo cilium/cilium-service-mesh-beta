@@ -25,7 +25,7 @@ metrics path `/metrics` to Envoy's Prometheus metrics path
 Apply this Cilium Envoy Config CRD:
 
 ```
-kubectl apply -f https://github.com/cilium/cilium-service-mesh-beta/blob/main/custom-envoy-listener/envoy-prometheus-metrics-listener.yaml
+kubectl apply -f https://raw.githubusercontent.com/cilium/cilium-service-mesh-beta/blob/main/custom-envoy-listener/envoy-prometheus-metrics-listener.yaml
 ```
 
 Let's take a look at the Cilium Envoy Config CRD. It begins with this
