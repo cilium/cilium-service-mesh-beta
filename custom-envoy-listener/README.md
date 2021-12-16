@@ -163,5 +163,5 @@ Where `<node-IP>` is the IP address of one of your k8s cluster nodes.
 Remove the prometheus listener with:
 
 ```
-kubectl delete -f https://github.com/cilium/cilium-service-mesh-beta/blob/main/custom-envoy-listener/envoy-prometheus-metrics-listener.yaml
+kubectl delete -f https://raw.githubusercontent.com/cilium/cilium-service-mesh-beta/blob/main/custom-envoy-listener/envoy-prometheus-metrics-listener.yaml
 ```
