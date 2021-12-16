@@ -3,8 +3,8 @@
 Welcome to the Cilium Service Mesh beta program! 
 
 In this repo you'll find 
-* information about the current status of Cilium Service Mesh features
-* **Coming soon**: instructions for getting started with Cilium Service Mesh 
+* information about the [status of Cilium Service Mesh features](#service-mesh-feature-status) and the [beta-specific image builds](#image-tags)
+* [instructions for getting started](#getting-started) with Cilium Service Mesh 
 * a [discussions forum](https://github.com/cilium/cilium-service-mesh-beta/discussions) for your feedback on Cilium Service Mesh features and usability
 * an [issue tracker](https://github.com/cilium/cilium-service-mesh-beta/issues) for bug reports related to Cilium Service Mesh. 
 
@@ -44,9 +44,13 @@ You will also need [Cilium CLI](https://github.com/cilium/cilium-cli) version 0.
 
 Instructions for installing the Cilium service mesh beta components are [here](INSTALLATION.md).
 
-Try HTTP path-based routing with this [Kubernetes Ingress example](./kubernetes-ingress/).
+We have some example configurations and walkthroughs for trying out Service Mesh capabilities: 
 
-Coming soon, we'll have more example configurations and walkthroughs for trying out Service Mesh capabilities. 
+* Try HTTP path-based routing with this [Kubernetes Ingress example](./kubernetes-ingress/). More ingress examples including gRPC routing and TLS termination are coming soon. 
+* Explore Cilium Envoy Configuration with examples showing [path translation](./custom-envoy-listener) and [Layer 7 load balancing](./l7-traffic-management/)
+* Walk through an example of the [Hubble integration with OpenTelemetry](https://github.com/cilium/hubble-otel/blob/main/USER_GUIDE_KIND.md)
+ 
+We'll be adding more during the course of the beta program (contributions welcome!) 
 
 ## Raising issues
 
