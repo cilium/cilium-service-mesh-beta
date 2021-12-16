@@ -4,6 +4,8 @@ Cilium Service Mesh defines a `CiliumEnvoyConfig` CRD which allows users to set 
 
 This feature is enabled using the `--enable-envoy-config` feature flag.
 
+**_Note: there is currently an [issue](https://github.com/cilium/cilium-service-mesh-beta/issues/9) with Envoy traffic not being subjected to datapath processing properly in direct datapath mode. The workaround is to run Cilium in tunnelling mode, by installing with `--datapath-mode=vxlan` as an option on `cilium install`_** 
+
 This example sets up an Envoy listener which load balances requests between two backend services. 
 
 ## Deploy test applications
@@ -119,13 +121,16 @@ But the network policy still prevents requests to any path that is not rewritten
 kubectl exec -it -n cilium-test $CLIENT2 -- curl -v echo-same-node:8080/bar
 ```
 
-Try making several requests to the one backend service, and you should see in the Hubble output that half the time, they are handled by the other backend. 
+Try making several requests to one backend service, and you should see in the Hubble output that half the time, they are handled by the other backend. 
 
 Example:
 
 ```
-Oct 13 16:30:59.023: cilium-test/client2-6dd75b74c6-68h7d:45004 <> cilium-test/echo-other-node:8080 from-endpoint FORWARDED (TCP Flags: SYN)
-Oct 13 16:30:59.032: cilium-test/client2-6dd75b74c6-68h7d:45004 <> cilium-test/echo-other-node-697d5d69b7-x6qnp:8080 from-proxy FORWARDED (TCP Flags: SYN)
-Oct 13 16:31:10.717: cilium-test/client2-6dd75b74c6-68h7d:45164 <> cilium-test/echo-other-node:8080 from-endpoint FORWARDED (TCP Flags: SYN)
-Oct 13 16:31:10.721: cilium-test/client2-6dd75b74c6-68h7d:45164 <> cilium-test/echo-same-node-7967996674-t24mq:8080 from-proxy FORWARDED (TCP Flags: SYN)
+Dec 16 13:59:50.430: cilium-test/client2-5998d566b4-j6jms:37748 -> cilium-test/echo-same-node-745bd5c77-5xfmv:8080 http-request FORWARDED (HTTP/1.1 GET http://echo-same-node:8080/)
+...
+Dec 16 13:59:53.584: cilium-test/client2-5998d566b4-j6jms:37822 -> cilium-test/echo-other-node-f4d46f75b-l5cgp:8080 http-request FORWARDED (HTTP/1.1 GET http://echo-same-node:8080/)
+...
+Dec 16 14:00:13.122: cilium-test/client2-5998d566b4-j6jms:37982 -> cilium-test/echo-same-node-745bd5c77-5xfmv:8080 http-request FORWARDED (HTTP/1.1 GET http://echo-same-node:8080/)
+...
+Dec 16 14:00:21.959: cilium-test/client2-5998d566b4-j6jms:37822 -> cilium-test/echo-other-node-f4d46f75b-l5cgp:8080 http-request FORWARDED (HTTP/1.1 GET http://echo-same-node:8080/)
 ```
