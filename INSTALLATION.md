@@ -38,6 +38,18 @@ Image versions    cilium-operator    quay.io/cilium/operator-aws-service-mesh:v1
 
 Confirm that the image versions for cilium operator, hubble-relay, and cilium are the [latest beta builds](https://github.com/cilium/cilium-service-mesh-beta#image-tags).
 
+### Problems? 
+
+If you see errors during installation, it would be helpful you can try uninstalling, then re-installing the regular release of Cilium to see whether it's a problem specific to the service mesh builds. 
+
+```
+cilium uninstall 
+cilium install 
+cilium hubble enable
+```
+
+## Use Hubble 
+
 In order to use the `hubble` command to observe flows you will want to use port-forwarding: 
 
 ```
@@ -52,7 +64,7 @@ hubble observe -f
 
 Check out `hubble help observe` for command line options to filter the output down to what you are most interested in (e.g., `--to-service`).
 
-### (Optional) Install Hubble UI
+## (Optional) Install Hubble UI
 
 If you'd like to visualize flows in the Hubble UI you'll need to install the hubble-ui components: 
 
