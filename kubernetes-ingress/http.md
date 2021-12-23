@@ -1,6 +1,6 @@
 # Ingress HTTP example
 
-The example ingress configration routes traffic to backend services from the `bookinfo` demo microservices app from the Istio project. 
+The example ingress configuration routes traffic to backend services from the `bookinfo` demo microservices app from the Istio project. 
 
 Deploy the demo app: 
 
