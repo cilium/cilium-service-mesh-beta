@@ -5,36 +5,24 @@ termination.
 
 ## Create TLS certificate and private key
 
-For demonstration purposes we will use a TLS certificate signed by a made-up 
-certificate authority. First generate a key and self-signed certificate for this
-certificate authority:
+For demonstration purposes we will use a TLS certificate signed by a made-up, self-signed 
+certificate authority (CA). One easy way to do this is with
+[`minica`](https://github.com/jsha/minica). We want a certificate that will
+validate bookinfo.cilium.rocks and hipstershop.cilium.rocks, as
+these are the host names used in this ingress example.
 
 ```
-openssl genrsa 4096 > ca-key.pem
-openssl req -new -x509 -nodes -key ca-key.pem -out ca-cert.pem 
+minica -domains '*.cilium.rocks'
 ```
 
-You'll be asked a series of questions, but for the purposes of the demo feel
-free to use any answers you like.
-
-Generate a certificate request for the service. You can use the config file
-`ssl.conf` from this directory for convenience.
-
-```
-openssl req -newkey rsa:4096 -nodes -keyout demo-key.pem -out demo-req.pem -config ssl.conf
-```
-
-Finally you can use this request to generate a certificate signed by the
-(made-up) certificate authority:
-
-```
-openssl x509 -req -in demo-req.pem -out demo-cert.pem -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 -extensions req_ext -extfile kubernetes-ingress/ssl.conf
-```
+On first run, `minica` generates a CA certificate and key (`minica.pem` and
+`minica-key.pem`). It also creates a directory called `_.cilium.rocks`
+containing a key and certificate file that we will use for the ingress service.   
 
 Create a Kubernetes secret with this demo key and certificate: 
 
 ```
-kubectl create secret tls demo-cert --key=demo-key.pem --cert=demo-cert.pem 
+kubectl create secret tls demo-cert --key=bookinfo.cilium.rocks/key.pem --cert=bookinfo.cilium.rocks/cert.pem 
 ```
 
 ## Deploy the ingress
@@ -91,14 +79,14 @@ By specifying the CA's certificate on a curl request, you can say that you trust
 signed by that CA.
 
 ```
-curl --cacert ca-cert.pem -v https://bookinfo.cilium.rocks/details/1
+curl --cacert minica.pem -v https://bookinfo.cilium.rocks/details/1
 ```
 
 If you prefer, instead of supplying the CA you can specify `-k` to tell the curl client not to validate the
 server's certificate. Without either, you will get an error that the certificate
 was signed by an unknown authority. 
 
-Specifying -v you can see that the TLS handshake took place successfully. 
+Specifying -v on the curl request, you can see that the TLS handshake took place successfully. 
 
 Similarly you can specify the CA on a gRPC request like this:
 
@@ -106,4 +94,8 @@ Similarly you can specify the CA on a gRPC request like this:
 grpcurl -proto ./demo.proto -cacert ca-cert.pem hipstershop.cilium.rocks:443 hipstershop.ProductCatalogService/ListProducts
 ```
 
+You can also visit https://bookinfo.cilium.rocks in your browser. The browser
+will warn you that the certificate authority is unknown but if you proceed past
+this, you should see the bookstore application home page. 
 
+Note that requests will time out if you don't specify `https://`. 
