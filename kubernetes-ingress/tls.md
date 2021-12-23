@@ -94,6 +94,8 @@ Similarly you can specify the CA on a gRPC request like this:
 grpcurl -proto ./demo.proto -cacert ca-cert.pem hipstershop.cilium.rocks:443 hipstershop.ProductCatalogService/ListProducts
 ```
 
+(See the [gRPC](grpc.md) example if you don't already have the `demo.proto` file downloaded.)
+
 You can also visit https://bookinfo.cilium.rocks in your browser. The browser
 will warn you that the certificate authority is unknown but if you proceed past
 this, you should see the bookstore application home page. 
