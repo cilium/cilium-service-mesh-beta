@@ -91,7 +91,7 @@ Specifying -v on the curl request, you can see that the TLS handshake took place
 Similarly you can specify the CA on a gRPC request like this:
 
 ```
-grpcurl -proto ./demo.proto -cacert ca-cert.pem hipstershop.cilium.rocks:443 hipstershop.ProductCatalogService/ListProducts
+grpcurl -proto ./demo.proto -cacert minica.pem hipstershop.cilium.rocks:443 hipstershop.ProductCatalogService/ListProducts
 ```
 
 (See the [gRPC](grpc.md) example if you don't already have the `demo.proto` file downloaded.)
