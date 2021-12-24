@@ -7,7 +7,7 @@ Cilium uses the standard Kubernetes Ingress resource definition, with an `ingres
 Examples: 
 * [HTTP](http.md)
 * [gRPC](grpc.md)
-* [TLS Termination]() **coming soon**
+* [TLS Termination](tls.md)
 
 
 

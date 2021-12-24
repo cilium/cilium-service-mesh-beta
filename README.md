@@ -46,7 +46,7 @@ Instructions for installing the Cilium service mesh beta components are [here](I
 
 We have some example configurations and walkthroughs for trying out Service Mesh capabilities: 
 
-* Try HTTP path-based routing with this [Kubernetes Ingress example](./kubernetes-ingress/). More ingress examples including gRPC routing and TLS termination are coming soon. 
+* Try path-based routing and TLS termination with the [Kubernetes Ingress examples](./kubernetes-ingress/)
 * Explore Cilium Envoy Configuration with examples showing [path translation](./custom-envoy-listener) and [Layer 7 load balancing](./l7-traffic-management/)
 * Walk through an example of the [Hubble integration with OpenTelemetry](https://github.com/cilium/hubble-otel/blob/main/USER_GUIDE_KIND.md)
  
