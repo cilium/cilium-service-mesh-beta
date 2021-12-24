@@ -22,7 +22,7 @@ containing a key and certificate file that we will use for the ingress service.
 Create a Kubernetes secret with this demo key and certificate: 
 
 ```
-kubectl create secret tls demo-cert --key=bookinfo.cilium.rocks/key.pem --cert=bookinfo.cilium.rocks/cert.pem 
+kubectl create secret tls demo-cert --key=_.cilium.rocks/key.pem --cert=_.cilium.rocks/cert.pem
 ```
 
 ## Deploy the ingress
