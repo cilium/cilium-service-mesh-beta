@@ -8,7 +8,20 @@ Deploy the demo app:
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.11/samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 
-*Note: this is just deploying the demo app, it's not adding any Istio components*
+Note that with Cilium Service Mesh there is no Envoy sidecar created alongside each of the demo app microservices. 
+
+```
+❯ kubectl get pods
+NAME                              READY   STATUS    RESTARTS   AGE
+details-v1-79f774bdb9-2cnzl       1/1     Running   0          84s
+productpage-v1-6b746f74dc-zm59b   1/1     Running   0          83s
+ratings-v1-b6994bb9-4zjr7         1/1     Running   0          83s
+reviews-v1-545db77b95-fg44w       1/1     Running   0          83s
+reviews-v2-7bf8c9648f-rlrmn       1/1     Running   0          83s
+reviews-v3-84779c7bbc-9b9tx       1/1     Running   0          83s
+```
+
+*Note: With the sidecar implementation the output would show 2/2 READY. One for the microservice and one for the Envoy sidecar.*
 
 ## Deploy the ingress
 
