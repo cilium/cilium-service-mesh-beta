@@ -8,7 +8,9 @@ Deploy the demo app:
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.11/samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 
-Note that with Cilium Service Mesh there is no Envoy sidecar created alongside each of the demo app microservices. 
+*Note: this is just deploying the demo app, it's not adding any Istio components*
+
+You can confirm that with Cilium Service Mesh there is no Envoy sidecar created alongside each of the demo app microservices. 
 
 ```
 ❯ kubectl get pods
