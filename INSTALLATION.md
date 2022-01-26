@@ -10,7 +10,7 @@ Install Cilium with the service mesh builds, and enable Hubble:
 
 ```
 cilium install --version -service-mesh:v1.11.0-beta.1 --config enable-envoy-config=true --kube-proxy-replacement=probe
-cilium hubble enable
+cilium hubble enable --relay-version -service-mesh:v1.11.0-beta.1
 ```
 
 Check that Cilium is running correctly by running `cilium status`. You should see output like this. 
@@ -69,7 +69,7 @@ Check out `hubble help observe` for command line options to filter the output do
 If you'd like to visualize flows in the Hubble UI you'll need to install the hubble-ui components: 
 
 ```
-cilium hubble enable --ui 
+cilium hubble enable --relay-version -service-mesh:v1.11.0-beta.1 --ui
 ```
 
 The images installed will be the standard images (there are no beta-specific builds for the UI components). 
