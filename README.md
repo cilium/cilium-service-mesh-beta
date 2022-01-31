@@ -28,6 +28,11 @@ The Cilium project is developing Service Mesh capabilities in a [feature branch]
 
 Other features will be added as the beta progresses. 
 
+### Known limitations
+
+* Cilium Service Mesh currently only works with the [datapath in tunnelling mode](https://github.com/cilium/cilium-service-mesh-beta/issues/9)
+* People have reported problems [installing Cilium Service Mesh on AKS](https://github.com/cilium/cilium-service-mesh-beta/issues/18)
+
 ## Image tags
 
 Container images built to include the service mesh beta features: 
