@@ -8,7 +8,4 @@ Examples:
 * [HTTP](http.md)
 * [gRPC](grpc.md)
 * [TLS Termination](tls.md)
-
-
-
-
+* [TLS Termination using cert-manager](tls-with-cert-manager)
