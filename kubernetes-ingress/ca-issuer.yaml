@@ -13,6 +13,9 @@ metadata:
   namespace: default
 spec:
   isCA: true
+  privateKey:
+    algorithm: ECDSA
+    size: 256
   secretName: ca
   commonName: ca
   issuerRef:
