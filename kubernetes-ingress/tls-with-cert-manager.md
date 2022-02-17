@@ -1,12 +1,15 @@
 # Ingress example with TLS termination using cert-manager
 
-This example builds on the [HTTP](http.md) and [gRPC](grpc.md) ingress examples, adding TLS
-termination.
+This example builds on the [HTTP](http.md) and [gRPC](grpc.md) ingress
+examples, adding TLS termination. This example is similar to the
+[TLS](tls.md) ingress example, in which you had to manually create a
+self-signed CA using `minica`. In this example, you will be using
+[cert-manager](https://cert-manager.io/), a Kubernetes-native operator that
+issues and renews TLS certificates for you.
 
 ## Create TLS certificate and private key
 
-We will be using cert-manager to obtain TLS certificates. Let us install
-cert-manager:
+Let us install cert-manager:
 
 ```sh
 helm repo add jetstack https://charts.jetstack.io
