@@ -1,18 +1,15 @@
 # Ingress example with TLS termination 
 
 This example builds on the [HTTP](http.md) and [gRPC](grpc.md) ingress examples, adding TLS
-termination.
+termination. 
 
 ## Create TLS certificate and private key
 
-For demonstration purposes we will use a TLS certificate signed by a
-made-up, self-signed certificate authority (CA). If you prefer using
-cert-manager to automate this part, you can read [Ingress example with TLS
-termination using cert-manager](./tls-with-cert-manager.md). One easy way to
-do this is with [`minica`](https://github.com/jsha/minica). We want a
-certificate that will validate bookinfo.cilium.rocks and
-hipstershop.cilium.rocks, as these are the host names used in this ingress
-example.
+For demonstration purposes we will use a TLS certificate signed by a made-up, [self-signed][]
+certificate authority (CA). One easy way to do this is with
+[`minica`](https://github.com/jsha/minica). We want a certificate that will
+validate bookinfo.cilium.rocks and hipstershop.cilium.rocks, as
+these are the host names used in this ingress example.
 
 ```
 minica -domains '*.cilium.rocks'
