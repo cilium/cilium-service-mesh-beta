@@ -40,8 +40,8 @@ kubectl apply -f https://raw.githubusercontent.com/cilium/cilium-service-mesh-be
 This creates a LoadBalancer service, which after around 30 seconds or so should
 be populated with an external IP address.
 
-```sh
-❯ kubectl get ingress
+```console
+$ kubectl get ingress
 NAME          CLASS    HOSTS                                            ADDRESS        PORTS     AGE
 tls-ingress   cilium   hipstershop.cilium.rocks,bookinfo.cilium.rocks   35.195.24.75   80, 443   6m5s
 ```
@@ -56,7 +56,7 @@ kubectl annotate ingress tls-ingress cert-manager.io/issuer=ca-issuer
 This creates a Certificate object along with a Secret containing the TLS
 certificate.
 
-```sh
+```console
 $ kubectl get certificate,secret demo-cert
 NAME                                    READY   SECRET      AGE
 certificate.cert-manager.io/demo-cert   True    demo-cert   33m
@@ -74,7 +74,7 @@ editing your local `/etc/hosts` file. (You will almost certainly need to be
 superuser to edit this file.) Add entries using the IP address
 assigned to the ingress service, so your file looks something like this:
 
-```sh
+```text
 ##
 # Host Database
 #
@@ -90,19 +90,20 @@ assigned to the ingress service, so your file looks something like this:
 
 ## Make requests
 
-By specifying the CA's certificate on a curl request, you can say that you trust certificates
-signed by that CA.
+By specifying the CA's certificate on a curl request, you can say that you trust
+certificates signed by that CA.
 
 ```sh
 curl --cacert <(kubectl get secret ca -o="jsonpath={.data.ca\.crt}" | base64 -d) \
     -v https://bookinfo.cilium.rocks/details/1
 ```
 
-If you prefer, instead of supplying the CA you can specify `-k` to tell the curl client not to validate the
-server's certificate. Without either, you will get an error that the certificate
-was signed by an unknown authority.
+If you prefer, instead of supplying the CA you can specify `-k` to tell the curl
+client not to validate the server's certificate. Without either, you will get an
+error that the certificate was signed by an unknown authority.
 
-Specifying -v on the curl request, you can see that the TLS handshake took place successfully.
+Specifying `-v` on the curl request, you can see that the TLS handshake took
+place successfully.
 
 Similarly you can specify the CA on a gRPC request like this:
 
@@ -113,7 +114,7 @@ grpcurl -proto ./demo.proto -cacert <(kubectl get secret ca -o="jsonpath={.data.
 
 (See the [gRPC](grpc.md) example if you don't already have the `demo.proto` file downloaded.)
 
-You can also visit https://bookinfo.cilium.rocks in your browser. The browser
+You can also visit <https://bookinfo.cilium.rocks> in your browser. The browser
 will warn you that the certificate authority is unknown but if you proceed past
 this, you should see the bookstore application home page.
 
