@@ -4,7 +4,7 @@ These instructions should help you get the Cilium Service Mesh-specific images i
 
 ## Install Cilium and Hubble
 
-[Install the Cilium CLI](https://docs.cilium.io/en/v1.11/gettingstarted/k8s-install-default/#install-the-cilium-cli) and run `cilium version` to check that you have version 0.10.0 or above. 
+[Install the Cilium CLI](https://docs.cilium.io/en/v1.11/gettingstarted/k8s-install-default/#install-the-cilium-cli) and run `cilium version` to check that you have version 0.10.2 or above.
 
 Install Cilium with the service mesh builds, and enable Hubble:
 
