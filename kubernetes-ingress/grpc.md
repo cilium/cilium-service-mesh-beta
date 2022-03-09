@@ -27,7 +27,7 @@ curl -o demo.proto https://raw.githubusercontent.com/GoogleCloudPlatform/microse
 You'll find the example Ingress definition in `grpc-ingress.yaml`.
 
 ```
-kubectl apply -g grpc-ingress.yaml
+kubectl apply -f grpc-ingress.yaml
 ```
 
 This defines paths for requests to be routed to the `productcatalogservice` and
