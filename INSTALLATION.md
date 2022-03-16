@@ -11,7 +11,7 @@ Install Cilium with the service mesh builds.
 * If you want Cilium to co-exist alongside kube-proxy:
 
 ```
-cilium install --version -service-mesh:v1.11.0-beta.1 --config enable-envoy-config=true --kube-proxy-replacement=partial --enable-node-port=true
+cilium install --version -service-mesh:v1.11.0-beta.1 --config enable-envoy-config=true --kube-proxy-replacement=partial --config enable-node-port=true
 ```
 
 * If you want to Cilium to completely replace kube-proxy, you will also need to specify the IP address of the node in which the Kubernetes API Server is running: 
