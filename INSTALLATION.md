@@ -17,7 +17,7 @@ cilium install --version -service-mesh:v1.11.0-beta.1 --config enable-envoy-conf
 * If you want to Cilium to completely replace kube-proxy, you will also need to specify the IP address of the node in which the Kubernetes API Server is running: 
 
 ```
-cilium install --version -service-mesh:v1.11.0-beta.1 --config enable-envoy-config=true --kube-proxy-replacement=strict --k8s-api-server=<API server URL>
+cilium install --version -service-mesh:v1.11.0-beta.1 --config enable-envoy-config=true --kube-proxy-replacement=strict --config k8s-api-server=<API server URL>
 ```
 
 Note that Cilium Service Mesh will not work with `--kube-proxy-replacement=disabled`. 
