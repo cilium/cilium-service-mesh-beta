@@ -2,16 +2,35 @@
 
 These instructions should help you get the Cilium Service Mesh-specific images installed in your cluster, with the service mesh features enabled. 
 
-## Install Cilium and Hubble
+## Install Cilium
 
 [Install the Cilium CLI](https://docs.cilium.io/en/v1.11/gettingstarted/k8s-install-default/#install-the-cilium-cli) and run `cilium version` to check that you have version 0.10.2 or above.
 
-Install Cilium with the service mesh builds, and enable Hubble:
+Install Cilium with the service mesh builds. 
+
+* If you want Cilium to co-exist alongside kube-proxy:
 
 ```
-cilium install --version -service-mesh:v1.11.0-beta.1 --config enable-envoy-config=true --kube-proxy-replacement=probe
+cilium install --version -service-mesh:v1.11.0-beta.1 --config enable-envoy-config=true --kube-proxy-replacement=partial --enable-node-port=true
+```
+
+* If you want to Cilium to completely replace kube-proxy, you will also need to specify the IP address of the node in which the Kubernetes API Server is running: 
+
+```
+cilium install --version -service-mesh:v1.11.0-beta.1 --config enable-envoy-config=true --kube-proxy-replacement=strict --kube-api-server=<IP address>
+```
+
+Note that Cilium Service Mesh will not work with `--kube-proxy-replacement=disabled`. 
+
+## Install Hubble 
+
+Enable Hubble:
+
+```
 cilium hubble enable
 ```
+
+## Confirm installation 
 
 Check that Cilium is running correctly by running `cilium status`. You should see output like this. 
 
