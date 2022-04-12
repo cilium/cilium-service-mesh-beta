@@ -24,21 +24,10 @@ kubectl apply -f https://raw.githubusercontent.com/cilium/cilium-service-mesh-be
 
 ## Deploy the ingress
 
-If you previously ran the HTTP and/or gRPC ingress demos, delete the ingresses:
+Follow the instructions from the [TLS demo](TLS.md) to deploy the ingress.
 
-```sh
-kubectl delete ingress basic-ingress grpc-ingress
-```
-
-The ingress configuration for this demo provides the same routing as those demos
-but with the addition of TLS termination. Deploy this ingress:
-
-```sh
-kubectl apply -f https://raw.githubusercontent.com/cilium/cilium-service-mesh-beta/main/kubernetes-ingress/tls-ingress.yaml
-```
-
-This creates a LoadBalancer service, which after around 30 seconds or so should
-be populated with an external IP address.
+These instructions will get you to install a LoadBalancer service, which after
+around 30 seconds or so should be populated with an external IP address.
 
 ```console
 $ kubectl get ingress
@@ -65,33 +54,20 @@ NAME               TYPE                DATA   AGE
 secret/demo-cert   kubernetes.io/tls   3      33m
 ```
 
+_Note: if you previously followed the the basic [TLS example](TLS.md) there was a pre-existing secret called `demo-cert`. This will be properly "updated" by cert-manager but the updated secret won't be picked up by Cilium ([#22](https://github.com/cilium/cilium-service-mesh-beta/issues/22)). You can work around this by deleting and re-creating the service `cilium-ingress-tls-ingress` after checking that cert-manager has properly created the secret. One way to do this is to delete and re-create the ingress config file tls-ingress.yaml_
+
 ## Edit /etc/hosts
 
-In this ingress configuration, the host names `hipstershop.cilium.rocks` and
-`bookinfo.cilium.rocks` are specified in the path routing rules. The client
-needs to specify which host it wants to access. This can be achieved by
-editing your local `/etc/hosts` file. (You will almost certainly need to be
-superuser to edit this file.) Add entries using the IP address
-assigned to the ingress service, so your file looks something like this:
-
-```text
-##
-# Host Database
-#
-# localhost is used to configure the loopback interface
-# when the system is booting.  Do not change this entry.
-##
-127.0.0.1       localhost
-255.255.255.255 broadcasthost
-...
-34.79.55.0 bookinfo.cilium.rocks
-34.79.55.0 hipstershop.cilium.rocks
-```
+Follow the same instructions as in the basic [TLS demo](TLS.md) to edit your
+`/etc/hosts` file with the IP address assigned to the ingress.
 
 ## Make requests
 
 By specifying the CA's certificate on a curl request, you can say that you trust
 certificates signed by that CA.
+
+This is very similar to the basic TLS demo, except that the CA's secret needs to
+be retrieved from the Kubernetes secret where it's stored.
 
 ```sh
 curl --cacert <(kubectl get secret ca -o="jsonpath={.data.ca\.crt}" | base64 -d) \
