@@ -4,11 +4,9 @@ Cilium uses the standard Kubernetes Ingress resource definition, with an `ingres
 
 *Note: that the ingress controller creates a service of LoadBalancer type, so [your environment will need to support this](https://github.com/cilium/cilium-service-mesh-beta/issues/3).*
 
-Examples: 
+Examples:
+
 * [HTTP](http.md)
 * [gRPC](grpc.md)
 * [TLS Termination](tls.md)
-
-
-
-
+* [TLS Termination using cert-manager](tls-with-cert-manager.md)

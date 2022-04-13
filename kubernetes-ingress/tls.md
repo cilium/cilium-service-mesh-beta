@@ -5,11 +5,18 @@ termination.
 
 ## Create TLS certificate and private key
 
-For demonstration purposes we will use a TLS certificate signed by a made-up, self-signed 
+For demonstration purposes we will use a TLS certificate signed by a made-up, [self-signed][]
 certificate authority (CA). One easy way to do this is with
 [`minica`](https://github.com/jsha/minica). We want a certificate that will
 validate bookinfo.cilium.rocks and hipstershop.cilium.rocks, as
 these are the host names used in this ingress example.
+
+> If you prefer using [cert-manager][] to automate this part, you may want
+> to follow this other example: [Ingress example with TLS termination using
+> cert-manager](./tls-with-cert-manager.md).
+
+[self-signed]: https://cert-manager.io/docs/faq/terminology/#what-does-self-signed-mean-is-my-ca-self-signed
+[cert-manager]: https://cert-manager.io/
 
 ```
 minica -domains '*.cilium.rocks'
