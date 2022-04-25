@@ -9,7 +9,7 @@ These instructions should help you get the Cilium Service Mesh-specific images i
 Install Cilium with the service mesh builds, and enable Hubble:
 
 ```
-cilium install --version -service-mesh:v1.11.0-beta.1 --config enable-envoy-config=true --kube-proxy-replacement=probe
+cilium  install --version v1.12.0-rc1 --helm-set enableIngressController=true --kube-proxy-replacement=probe
 cilium hubble enable
 ```
 
@@ -31,9 +31,9 @@ Containers:       cilium             Running: 2
                   cilium-operator    Running: 1
                   hubble-relay       Running: 1
 Cluster Pods:     3/3 managed by Cilium
-Image versions    cilium-operator    quay.io/cilium/operator-aws-service-mesh:v1.11.0-beta.1: 1
-                  hubble-relay       quay.io/cilium/hubble-relay-service-mesh:v1.11.0-beta.1: 1
-                  cilium             quay.io/cilium/cilium-service-mesh:v1.11.0-beta.1: 2
+Image versions    cilium             quay.io/cilium/cilium:v1.12.0-rc1: 2
+                  cilium-operator    quay.io/cilium/operator-generic:v1.12.0-rc1: 1
+                  hubble-relay       quay.io/cilium/hubble-relay:v1.12.0-rc1: 1
 ```
 
 Confirm that the image versions for cilium operator, hubble-relay, and cilium are the [latest beta builds](https://github.com/cilium/cilium-service-mesh-beta#image-tags).
@@ -92,12 +92,12 @@ Containers:       cilium             Running: 2
                   hubble-relay       Running: 1
                   hubble-ui          Running: 1
 Cluster Pods:     4/4 managed by Cilium
-Image versions    cilium             quay.io/cilium/cilium-service-mesh:v1.11.0-beta.1: 2
-                  cilium-operator    quay.io/cilium/operator-aws-service-mesh:v1.11.0-beta.1: 1
-                  hubble-relay       quay.io/cilium/hubble-relay-service-mesh:v1.11.0-beta.1: 1
-                  hubble-ui          docker.io/envoyproxy/envoy:v1.18.2@sha256:e8b37c1d75787dd1e712ff389b0d37337dc8a174a63bed9c34ba73359dc67da7: 1
-                  hubble-ui          quay.io/cilium/hubble-ui:v0.8.3: 1
-                  hubble-ui          quay.io/cilium/hubble-ui-backend:v0.8.3: 1
+Image versions    cilium             quay.io/cilium/cilium:v1.12.0-rc1: 2
+                  cilium-operator    quay.io/cilium/operator-generic:v1.12.0-rc1: 1
+                  hubble-relay       quay.io/cilium/hubble-relay:v1.12.0-rc1: 1
+                  hubble-ui          quay.io/cilium/hubble-ui:v0.8.5@sha256:4eaca1ec1741043cfba6066a165b3bf251590cf4ac66371c4f63fbed2224ebb4: 1
+                  hubble-ui          quay.io/cilium/hubble-ui-backend:v0.8.5@sha256:2bce50cf6c32719d072706f7ceccad654bfa907b2745a496da99610776fe31ed: 1
+                  hubble-ui          docker.io/envoyproxy/envoy:v1.20.2@sha256:eb7d88d5186648049f0a80062120bd45e7557bdff3f6a30e1fc92cbb50916868: 1
 ```
 
 The following command will open the UI in your browser: 

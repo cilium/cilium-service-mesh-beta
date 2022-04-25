@@ -39,9 +39,9 @@ Container images built to include the service mesh beta features:
 
 | Component | Image name | 
 |-----------|------------|
-| Cilium agent | quay.io/cilium/cilium-service-mesh:v1.11.0-beta.1 |
-| Cilium operator | quay.io/cilium/operator-generic-service-mesh:v1.11.0-beta.1 | 
-| Hubble relay | quay.io/cilium/hubble-relay-service-mesh:v1.11.0-beta.1 | 
+| Cilium agent | quay.io/cilium/cilium:v1.12.0-rc1 |
+| Cilium operator | quay.io/cilium/operator-generic:v1.12.0-rc1 | 
+| Hubble relay | quay.io/cilium/hubble-relay:v1.12.0-rc1 | 
 
 You will also need [Cilium CLI](https://github.com/cilium/cilium-cli) version 0.10.0 or greater. (Check the version with `cilium version`). 
 
