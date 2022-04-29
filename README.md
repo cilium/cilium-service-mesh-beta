@@ -3,12 +3,11 @@
 Welcome to the Cilium Service Mesh beta program! 
 
 In this repo you'll find 
-* information about the [status of Cilium Service Mesh features](#service-mesh-feature-status) and the [beta-specific image builds](#image-tags)
+* information about the [status of Cilium Service Mesh features](#service-mesh-feature-status) 
 * [instructions for getting started](#getting-started) with Cilium Service Mesh 
-* a [discussions forum](https://github.com/cilium/cilium-service-mesh-beta/discussions) for your feedback on Cilium Service Mesh features and usability
 * an [issue tracker](https://github.com/cilium/cilium-service-mesh-beta/issues) for bug reports related to Cilium Service Mesh. 
 
-The Cilium project is developing Service Mesh capabilities in a [feature branch](https://github.com/cilium/cilium/tree/beta/service-mesh), to give us the flexibility to make potentially non-backwards-compatible changes, for example changes to CRDs. We plan to merge Service Mesh features into Cilium release v1.12 in early 2022. (Read more about the [motivations for the beta program](https://cilium.io/blog/2021/12/01/cilium-service-mesh-beta)). 
+The Cilium project originally developed Service Mesh capabilities in a [feature branch](https://github.com/cilium/cilium/tree/beta/service-mesh), to give us the flexibility to make potentially non-backwards-compatible changes, for example changes to CRDs. Much of this functionality is now being merged into the main Cilium release ahead of v1.12. (Read more about the [motivations for the beta program](https://cilium.io/blog/2021/12/01/cilium-service-mesh-beta)). 
 
 ## Service Mesh feature status 
 
@@ -20,17 +19,18 @@ The Cilium project is developing Service Mesh capabilities in a [feature branch]
 
 **v1.11** Features already merged into the Cilium v1.11 release (as well as in the Service Mesh beta-specific builds)
 
+**v1.12** Features expected to be merged into the Cilium v.12 release
+
 | Feature | Status | 
 |---------|--------|
-| Kubernetes Ingress support | Beta |
-| Open Telemetry support | Alpha, v1.11 |
-| L7-aware Traffic Management | Alpha | 
+| Kubernetes Ingress support | Beta, v1.12 |
+| Open Telemetry support | Alpha, v1.11, v1.12 |
+| L7-aware Traffic Management | Alpha, v1.12 | 
 
-Other features will be added as the beta progresses. 
+Expected future features for Cilium Service Mesh are now listed in the [Cilium Roadmap](https://docs.cilium.io/en/latest/community/roadmap/#cilium-service-mesh)
 
 ### Known limitations
 
-* Cilium Service Mesh currently only works with the [datapath in tunnelling mode](https://github.com/cilium/cilium-service-mesh-beta/issues/9)
 * People have reported problems [installing Cilium Service Mesh on AKS](https://github.com/cilium/cilium-service-mesh-beta/issues/18)
 
 ## Image tags
