@@ -6,4 +6,4 @@ The beta phase of Cilium Service Mesh has ended. Cilium service mesh is now avai
 
 Please see:
 * GitHub: https://github.com/cilium/cilium
-* Documentation: https://docs.cilium.io/en/latest/gettingstarted/#service-mesh
+* Documentation: https://docs.cilium.io/en/stable/gettingstarted/#service-mesh
