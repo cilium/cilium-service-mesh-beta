@@ -13,6 +13,52 @@ cilium  install --version v1.12.0-rc1 --helm-set enableIngressController=true --
 cilium hubble enable
 ```
 
+Alternatively, you can use Helm to install Cilium Service Mesh. For example, to install on GKE:
+
+```
+# Specify your cluster name and zone.
+CLUSTER_NAME=my-cluster
+CLUSTER_ZONE=us-west2-a
+
+NATIVE_CIDR="$(gcloud container clusters describe $CLUSTER_NAME --zone $CLUSTER_ZONE --format 'value(clusterIpv4Cidr)')"
+git clone git@github.com:cilium/cilium.git
+cd cilium
+git checkout origin/beta/service-mesh
+cat > service-mesh-values.yaml <<EOF
+image:
+  repository: quay.io/cilium/cilium-service-mesh
+  tag: v1.11.0-beta.1
+  useDigest: false
+operator:
+  image:
+    repository: quay.io/cilium/operator
+    tag: v1.11.0-beta.1
+    useDigest: false
+    suffix: "-service-mesh"
+kubeProxyReplacement: probe
+hubble:
+  relay:
+    enabled: "true"
+extraConfig:
+  enable-envoy-config: "true"
+# Following settings are for specific to GKE. Please adjust them according to
+# https://docs.cilium.io/en/v1.11/gettingstarted/k8s-install-helm/#installation-using-helm
+# if you are using other Kubernetes environments.
+nodeinit:
+  enabled: true
+  reconfigureKubelet: true
+  removeCbrBridge: true
+cni:
+  binPath: /home/kubernetes/bin
+gke:
+  enabled: true
+ipam:
+  mode: kubernetes
+nativeRoutingCIDR: ${NATIVE_CIDR}
+EOF
+helm install -n kube-system cilium ./install/kubernetes/cilium -f service-mesh-values.yaml
+```
+
 Check that Cilium is running correctly by running `cilium status`. You should see output like this. 
 
 ```
